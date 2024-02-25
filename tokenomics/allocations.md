@@ -26,11 +26,15 @@ _**Allocation: 52%**_
 
 The MAZZE Public Sale and Liquidity initiative is strategically designed to ensure a seamless market entry and robust liquidity from the outset. This step aims to facilitate widespread access to MAZZE tokens through a transparent and accessible public sale, laying the groundwork for a stable and thriving trading environment. Following the sale, the focus shifts to maintaining liquidity, essential for the token's long-term viability and the ecosystem's growth. This initiative marks the beginning of our journey, setting the stage for future expansion and success.
 
+_**Liquidity Lock-up period:**_ The liquidity will be locked for 12 months on Unicrypt. This means that the liquidity provided on the platform will be locked and inaccessible for withdrawal or trading for a full year, ensuring stability and security in the market by preventing sudden liquidity withdrawals.
+
 ### <mark style="color:orange;">Ecosystem Development Fund</mark> <a href="#user-airdrops" id="user-airdrops"></a>
 
 _**Allocation: 20%**_
 
 The Ecosystem Development Fund serves as a dynamic incentive program, crafted to catalyze the growth of the Mazze ecosystem. It is dedicated to financially supporting the communities and enterprises that are pivotal in broadening the Mazze network. This fund acts as an initial accelerator, with a clear plan to gracefully conclude its operations once the allocated MAZZE resources have been fully distributed.
+
+_**Lock-up period:** 1month_ _cliff**,**_ followed by linear vesting over 11 months for a total of 1,000,000,000 MAZZE tokens. No tokens will be distributed during the first month, with a gradual release thereafter to ensure a consistent supply of tokens to the market.
 
 ### <mark style="color:orange;">Team Growth Fund</mark> <a href="#user-airdrops" id="user-airdrops"></a>
 
@@ -38,14 +42,20 @@ _**Allocation: 12%**_
 
 The Team Growth Fund is meticulously crafted to support the strategic expansion and enhancement of our team. This fund is dedicated to attracting top-tier talent and investing in the professional development of our team members. By focusing on nurturing skills and fostering a culture of innovation, the Team Growth Fund ensures our project stays at the cutting edge of technology and industry practices. It's an investment in our people, recognizing that a skilled and motivated team is the cornerstone of sustained success and growth.
 
+_**Lock-up period:** 1month_ _cliff**,**_ followed by linear vesting over 11 months for a total of 600,000,000 MAZZE tokens. No tokens will be distributed during the first month, with a gradual release thereafter to ensure a consistent supply of tokens to the market.
+
 ### <mark style="color:orange;">Community Engagement Fund</mark> <a href="#user-airdrops" id="user-airdrops"></a>
 
 _**Allocation: 8%**_
 
 An 8% reserve of the MAZZE token supply is earmarked for future user engagement initiatives, including airdrop campaigns, bounty programs, and more. Given the susceptibility of airdrops to manipulation, Mazze will meticulously devise the criteria to ensure fairness in distribution. The goal is to reward those who contribute positively to the Mazze community. Engaging actively and constructively is the most effective strategy to enhance your chances of benefiting from future airdrops.
 
+_**Lock-up period:** 2 weeks_ cliff, followed by linear vesting over 11 months, totaling 400,000,000 MAZZE tokens. No tokens will be distributed during the first two weeks, with a gradual release thereafter to ensure a steady supply of tokens to the market.
+
 ### <mark style="color:orange;">Marketing and Promotion Fund</mark> <a href="#user-airdrops" id="user-airdrops"></a>
 
 _**Allocation: 8%**_
 
 The Marketing and Promotion Fund is strategically allocated to amplify our project's presence and reach within the market. This fund underpins aggressive marketing campaigns, innovative promotional activities, and strategic partnerships aimed at driving brand awareness and engagement. It's a pivotal resource for navigating the competitive landscape, ensuring our message resonates with our target audience and our project stands out. Investing in marketing and promotion is not just about visibility—it's about building a connection with our community and stakeholders, laying the foundation for long-term growth and success.
+
+_**Lock-up period:** 2 weeks_ cliff, followed by linear vesting over 11 months, totaling 400,000,000 MAZZE tokens. No tokens will be distributed during the first two weeks, with a gradual release thereafter to ensure a steady supply of tokens to the market.
