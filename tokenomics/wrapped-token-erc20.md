@@ -17,11 +17,11 @@ layout:
 
 ### <mark style="color:orange;">Token Details</mark>
 
-<table data-header-hidden><thead><tr><th width="260.3298621743647"></th><th></th></tr></thead><tbody><tr><td>Contract Name</td><td>Mazze</td></tr><tr><td><strong>Symbol</strong></td><td>MAZZE</td></tr><tr><td><strong>Chain</strong></td><td>Ethereum</td></tr><tr><td>Standard</td><td>ERC20</td></tr><tr><td>Decimals</td><td>18</td></tr><tr><td>Initial Total Supply (ITS)</td><td>TBA</td></tr><tr><td>Circulating Supply (ICS)</td><td>TBA</td></tr><tr><td>Price</td><td>TBA</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="260.3298621743647"></th><th></th></tr></thead><tbody><tr><td>Contract Name</td><td>Mazze</td></tr><tr><td><strong>Symbol</strong></td><td>MAZZE</td></tr><tr><td><strong>Chain</strong></td><td>Ethereum</td></tr><tr><td>Standard</td><td>ERC20</td></tr><tr><td>Decimals</td><td>18</td></tr><tr><td>Initial Total Supply (ITS)</td><td>5,000,000,000</td></tr><tr><td>Circulating Supply (ICS)</td><td>TBA</td></tr><tr><td>Price</td><td>TBA</td></tr></tbody></table>
 
 ### <mark style="color:orange;">MAZZE Token Contract</mark>
 
-<table><thead><tr><th width="259">Name</th><th>Address</th></tr></thead><tbody><tr><td>Mazze</td><td>TBA</td></tr></tbody></table>
+<table><thead><tr><th width="259">Name</th><th>Address</th></tr></thead><tbody><tr><td>Mazze</td><td><a href="https://etherscan.io/token/0x4a029f7bcf33acb03547d8fa7be840347973e24e">0x4A029F7bCf33AcB03547D8fA7be840347973e24e</a></td></tr></tbody></table>
 
 
 
