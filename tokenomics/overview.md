@@ -16,7 +16,7 @@ layout:
 
 The native token, MAZZE, is set to revolutionize the ecosystem through a wide array of functionalities. This document outlines the structured information about the project, its native token utility, the strategic approach towards liquidity and community engagement through an ERC20 token on the Ethereum network, and the planned transition towards its mainnet launch.
 
-### <mark style="color:orange;">**Token Utility of MAZZE**</mark>
+### <mark style="color:orange;">**Token Utility**</mark>
 
 The native MAZZE token, integral to the Mazze blockchain, is designed to serve multiple key functions, ensuring the robustness and sustainability of the network. The utilities include:
 
