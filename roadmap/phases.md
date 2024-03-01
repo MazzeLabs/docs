@@ -31,8 +31,8 @@ Discover our strategic milestones and how we're propelling towards a transformat
 
 > _`Community and Token Launch`_
 
-* [ ] Wrapped token creation
-* [ ] Community engagement
+* [x] Wrapped token creation
+* [x] Community engagement
 * [ ] Public sale
 * [ ] Devnet launch
 * [ ] Node operator recruitment
