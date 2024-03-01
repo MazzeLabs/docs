@@ -67,7 +67,7 @@
 * [Medium](https://mazzelabs.medium.com)
 * [Discord Channel](https://discord.mazze.io)
 * [Whitepaper](https://mazze.io/whitepaperV1.pdf)
-* [Zealy](https://zealy.io/c/mazze)
+* [Zealy](https://zealy.io/cw/mazze)
 * [Audit](https://app.solidproof.io/projects/mazze)
 
 ## Legal
