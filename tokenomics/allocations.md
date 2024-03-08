@@ -36,6 +36,8 @@ The Ecosystem Development Fund serves as a dynamic incentive program, crafted to
 
 _**Lock-up period:** 1month_ _cliff**,**_ followed by linear vesting over 11 months for a total of 1,000,000,000 MAZZE tokens. No tokens will be distributed during the first month, with a gradual release thereafter to ensure a consistent supply of tokens to the market.
 
+Uncx Network: [etherscan.io/tx/0x9214d6166696c0fd4f11d6ba464337f4a8cabc622a83772f45835cf8276f2ae3](https://etherscan.io/tx/0x9214d6166696c0fd4f11d6ba464337f4a8cabc622a83772f45835cf8276f2ae3)
+
 ### <mark style="color:orange;">Team Growth Fund</mark> <a href="#user-airdrops" id="user-airdrops"></a>
 
 _**Allocation: 12%**_
@@ -43,6 +45,8 @@ _**Allocation: 12%**_
 The Team Growth Fund is meticulously crafted to support the strategic expansion and enhancement of our team. This fund is dedicated to attracting top-tier talent and investing in the professional development of our team members. By focusing on nurturing skills and fostering a culture of innovation, the Team Growth Fund ensures our project stays at the cutting edge of technology and industry practices. It's an investment in our people, recognizing that a skilled and motivated team is the cornerstone of sustained success and growth.
 
 _**Lock-up period:** 1month_ _cliff**,**_ followed by linear vesting over 11 months for a total of 600,000,000 MAZZE tokens. No tokens will be distributed during the first month, with a gradual release thereafter to ensure a consistent supply of tokens to the market.
+
+Uncx Network: [etherscan.io/tx/0x473111446a9de3cded86bfd1f64954604357e6b6b19ad905f4effa9904fb8419](https://etherscan.io/tx/0x473111446a9de3cded86bfd1f64954604357e6b6b19ad905f4effa9904fb8419)
 
 ### <mark style="color:orange;">Community Engagement Fund</mark> <a href="#user-airdrops" id="user-airdrops"></a>
 
@@ -52,6 +56,8 @@ An 8% reserve of the MAZZE token supply is earmarked for future user engagement 
 
 _**Lock-up period:** 2 weeks_ cliff, followed by linear vesting over 11 months, totaling 400,000,000 MAZZE tokens. No tokens will be distributed during the first two weeks, with a gradual release thereafter to ensure a steady supply of tokens to the market.
 
+Uncx Network: [etherscan.io/tx/0x4be31b2bbddc2206bfd9d9b315b9989b92d9309275e720ebce23ea5c5ead8d64](https://etherscan.io/tx/0x4be31b2bbddc2206bfd9d9b315b9989b92d9309275e720ebce23ea5c5ead8d64)
+
 ### <mark style="color:orange;">Marketing and Promotion Fund</mark> <a href="#user-airdrops" id="user-airdrops"></a>
 
 _**Allocation: 8%**_
@@ -59,3 +65,5 @@ _**Allocation: 8%**_
 The Marketing and Promotion Fund is strategically allocated to amplify our project's presence and reach within the market. This fund underpins aggressive marketing campaigns, innovative promotional activities, and strategic partnerships aimed at driving brand awareness and engagement. It's a pivotal resource for navigating the competitive landscape, ensuring our message resonates with our target audience and our project stands out. Investing in marketing and promotion is not just about visibility—it's about building a connection with our community and stakeholders, laying the foundation for long-term growth and success.
 
 _**Lock-up period:** 2 weeks_ cliff, followed by linear vesting over 11 months, totaling 400,000,000 MAZZE tokens. No tokens will be distributed during the first two weeks, with a gradual release thereafter to ensure a steady supply of tokens to the market.
+
+Uncx Network: [etherscan.io/tx/0xda6c2233cdaa1325c3dd973f7e516f9bcaa8f8e2fe54d188744fab61decf4945](https://etherscan.io/tx/0xda6c2233cdaa1325c3dd973f7e516f9bcaa8f8e2fe54d188744fab61decf4945)
