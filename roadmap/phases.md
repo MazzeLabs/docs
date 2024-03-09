@@ -33,7 +33,7 @@ Discover our strategic milestones and how we're propelling towards a transformat
 
 * [x] Wrapped token creation
 * [x] Community engagement
-* [ ] Public sale
+* [x] Public sale
 * [ ] Node operator recruitment
 * [ ] Devnet launch
 * [ ] Smart contract development
