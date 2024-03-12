@@ -27,7 +27,7 @@ Discover our strategic milestones and how we're propelling towards a transformat
 * [x] Online presence
 * [x] Community outreach
 
-### <mark style="color:orange;">PHASE B | Q1 2024 | Community Building</mark>
+### <mark style="color:orange;">PHASE B | Q1-2 2024 | Community Building</mark>
 
 > _`Community and Token Launch`_
 
@@ -38,7 +38,7 @@ Discover our strategic milestones and how we're propelling towards a transformat
 * [ ] Devnet launch
 * [ ] Smart contract development
 
-### <mark style="color:orange;">PHASE C | Q3 2024 | Mainnet Launch</mark>
+### <mark style="color:orange;">PHASE C | Q3-4 2024 | Mainnet Launch</mark>
 
 > _`Mainnet and Growth`_
 
