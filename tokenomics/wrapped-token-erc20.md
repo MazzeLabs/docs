@@ -17,7 +17,7 @@ layout:
 
 ### <mark style="color:orange;">Token Details</mark>
 
-<table data-header-hidden><thead><tr><th width="260.3298621743647"></th><th></th></tr></thead><tbody><tr><td>Contract Name</td><td>Mazze</td></tr><tr><td><strong>Symbol</strong></td><td>MAZZE</td></tr><tr><td><strong>Chain</strong></td><td>Ethereum</td></tr><tr><td>Standard</td><td>ERC20</td></tr><tr><td>Decimals</td><td>18</td></tr><tr><td>Initial Total Supply (ITS)</td><td>5,000,000,000</td></tr><tr><td>Circulating Supply (ICS)</td><td>TBA</td></tr><tr><td>Price</td><td>TBA</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="260.3298621743647"></th><th></th></tr></thead><tbody><tr><td>Contract Name</td><td>Mazze</td></tr><tr><td><strong>Symbol</strong></td><td>MAZZE</td></tr><tr><td><strong>Chain</strong></td><td>Ethereum</td></tr><tr><td>Standard</td><td>ERC20</td></tr><tr><td>Decimals</td><td>18</td></tr><tr><td>Initial Total Supply (ITS)</td><td>5,000,000,000</td></tr></tbody></table>
 
 ### <mark style="color:orange;">MAZZE Token Contract</mark>
 
