@@ -34,6 +34,7 @@
 ## 🔸 Testnet
 
 * [Introduction to Mazze Testnet](testnet/introduction-to-mazze-testnet.md)
+* [Temporary Limitations](testnet/temporary-limitations.md)
 * [How to Add the Mazze Testnet to Metamask](testnet/how-to-add-the-mazze-testnet-to-metamask.md)
 * [Getting Started with Mazze Testnet](testnet/getting-started-with-mazze-testnet.md)
 * [Deploying Smart Contracts on Mazze Testnet](testnet/deploying-smart-contracts-on-mazze-testnet.md)
