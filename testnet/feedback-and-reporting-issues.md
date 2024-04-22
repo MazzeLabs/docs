@@ -26,7 +26,7 @@ Your suggestions are crucial for the continuous improvement of the Mazze Testnet
 #### Join Our Discord Community
 
 * Engage with us and other community members in the `#testnet-feedback` channel on our [Discord server](https://discord.com/invite/mazze). This channel serves as a hub for testnet users to share their experiences and ideas.
-* When providing feedback, try to be as specific as possible about what you like, what you don’t, and how you think things could be improved.
+* When providing feedback, try to be as specific as possible about what you like, what you don’t and how you think things could be improved.
 
 ### What Happens After You Provide Feedback?
 

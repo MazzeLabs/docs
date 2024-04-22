@@ -1,6 +1,6 @@
 # Deploying Smart Contracts on Mazze Testnet
 
-This guide will walk you through deploying, testing, and interacting with your smart contracts on the Mazze Testnet. Since Mazze is EVM-compatible, you can use familiar Ethereum tools like Truffle, Hardhat, or Remix for your development process.
+This guide will walk you through deploying, testing and interacting with your smart contracts on the Mazze Testnet. Since Mazze is EVM-compatible, you can use familiar Ethereum tools like Truffle, Hardhat, or Remix for your development process.
 
 ### Prerequisites
 

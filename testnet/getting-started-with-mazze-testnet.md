@@ -40,7 +40,7 @@ Return to your Metamask wallet to confirm that the test MAZZE tokens have been a
 
 ### Testing Your Applications
 
-With the test MAZZE tokens in your wallet, you are now ready to deploy smart contracts, interact with the blockchain, and test your applications. Remember, since the Mazze Testnet is EVM-compatible, you can use Ethereum development tools such as Truffle or Hardhat for deployment and testing.
+With the test MAZZE tokens in your wallet, you are now ready to deploy smart contracts, interact with the blockchain and test your applications. Remember, since the Mazze Testnet is EVM-compatible, you can use Ethereum development tools such as Truffle or Hardhat for deployment and testing.
 
 ### Troubleshooting
 
