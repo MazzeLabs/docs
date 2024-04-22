@@ -1,10 +1,10 @@
 # Introduction to Mazze Testnet
 
-Welcome to the Mazze Testnet! This introduction is designed to help you understand the purpose of our testnet, its numerous benefits, and the key features it offers. Additionally, we will explain how the Mazze Testnet differs from our mainnet, ensuring you have all the information needed to start testing and developing on our platform.
+Welcome to the Mazze Testnet! This introduction is designed to help you understand the purpose of our testnet, its numerous benefits and the key features it offers. Additionally, we will explain how the Mazze Testnet differs from our mainnet, ensuring you have all the information needed to start testing and developing on our platform.
 
 ## Purpose of the Mazze Testnet
 
-The Mazze Testnet serves as a sandbox environment for developers, researchers, and enthusiasts to experiment and test their applications in a real-world blockchain environment without the financial risks associated with the mainnet. The primary purposes of the Mazze Testnet are:
+The Mazze Testnet serves as a sandbox environment for developers, researchers and enthusiasts to experiment and test their applications in a real-world blockchain environment without the financial risks associated with the mainnet. The primary purposes of the Mazze Testnet are:
 
 #### **Testing Smart Contracts**
 
@@ -16,7 +16,7 @@ New blockchain technologies and updates can be tested extensively to gauge their
 
 #### **Education and Training**
 
-Users new to blockchain technology can learn how to interact with a blockchain, execute transactions, and more, without the stress of using real assets.
+Users new to blockchain technology can learn how to interact with a blockchain, execute transactions and more, without the stress of using real assets.
 
 ## Benefits of the Mazze Testnet
 
