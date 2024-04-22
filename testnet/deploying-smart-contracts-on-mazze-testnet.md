@@ -4,8 +4,8 @@ This guide will walk you through deploying, testing, and interacting with your s
 
 ### Prerequisites
 
-* Ensure your Metamask is configured for the Mazze Testnet. See our guide on How to Add the Mazze Testnet to Metamask.
-* Have some test MAZZE tokens in your account to pay for gas fees. You can obtain these from our Testnet Faucet.
+* Ensure your Metamask is configured for the Mazze Testnet. See our guide on [How to Add the Mazze Testnet to Metamask](how-to-add-the-mazze-testnet-to-metamask.md).
+* Have some test MAZZE tokens in your account to pay for gas fees. You can obtain these from our Testnet Faucet: faucet.mazze.io \[soon]
 
 ### Step 1: Setting Up Your Development Environment
 

@@ -13,11 +13,11 @@ This page addresses some of the frequently asked questions and common issues tha
 * Chain ID: `199991`
 * Currency Symbol: MAZZE
 
-For a detailed guide, see our page on How to Add the Mazze Testnet to Metamask.
+For a detailed guide, see our page on [How to Add the Mazze Testnet to Metamask](how-to-add-the-mazze-testnet-to-metamask.md).
 
 #### Q2: Where can I get test MAZZE tokens for the testnet?
 
-**A:** Test MAZZE tokens can be obtained from our testnet faucet. Visit the Mazze Testnet Faucet page, enter your wallet address, and click on "Request Tokens."
+**A:** Test MAZZE tokens can be obtained from our testnet faucet. Visit the [Mazze Testnet Faucet page](https://faucet.mazze.io), enter your wallet address, and click on "Request Tokens."
 
 #### Q3: What tools can I use to develop and test smart contracts on the Mazze Testnet?
 
@@ -48,4 +48,4 @@ For a detailed guide, see our page on How to Add the Mazze Testnet to Metamask.
 
 #### Issue 4: How do I report a bug or issue with the testnet?
 
-**Solution:** If you encounter a bug or an issue not covered in this FAQ, please report it to our support team. Provide detailed information including the error messages received, screenshots, and steps to reproduce the issue. You can contact us via Telegram or Discord.
+**Solution:** If you encounter a bug or an issue not covered in this FAQ, please report it to our support team. Provide detailed information including the error messages received, screenshots, and steps to reproduce the issue. You can contact us via Discord in our dedicated channel  `#testnet-feedback`.

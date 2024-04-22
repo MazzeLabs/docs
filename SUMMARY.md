@@ -31,6 +31,15 @@
 * [Solidity](developers/solidity.md)
 * [Developing Smart Contracts](developers/developing-smart-contracts.md)
 
+## 🔸 Testnet
+
+* [Introduction to Mazze Testnet](testnet/introduction-to-mazze-testnet.md)
+* [How to Add the Mazze Testnet to Metamask](testnet/how-to-add-the-mazze-testnet-to-metamask.md)
+* [Getting Started with Mazze Testnet](testnet/getting-started-with-mazze-testnet.md)
+* [Deploying Smart Contracts on Mazze Testnet](testnet/deploying-smart-contracts-on-mazze-testnet.md)
+* [FAQs and Troubleshooting](testnet/faqs-and-troubleshooting.md)
+* [Feedback and Reporting Issues](testnet/feedback-and-reporting-issues.md)
+
 ## 🔸 ZK Proofs Integration
 
 * [Overview](zk-proofs-integration/overview.md)
@@ -73,12 +82,3 @@
 ## 🔸 Legal
 
 * [Terms of Service](https://www.notion.so/mazze/Terms-of-Service-477f88bab29e4fbcb6671fa27909a32a?pvs=4)
-
-## 🔸 Testnet
-
-* [Introduction to Mazze Testnet](testnet/introduction-to-mazze-testnet.md)
-* [How to Add the Mazze Testnet to Metamask](testnet/how-to-add-the-mazze-testnet-to-metamask.md)
-* [Getting Started with Mazze Testnet](testnet/getting-started-with-mazze-testnet.md)
-* [Deploying Smart Contracts on Mazze Testnet](testnet/deploying-smart-contracts-on-mazze-testnet.md)
-* [FAQs and Troubleshooting](testnet/faqs-and-troubleshooting.md)
-* [Feedback and Reporting Issues](testnet/feedback-and-reporting-issues.md)

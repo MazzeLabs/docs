@@ -4,13 +4,13 @@ Welcome to the Mazze Testnet! As an EVM-compatible blockchain, Mazze offers deve
 
 ### Prerequisites
 
-Ensure that you have Metamask installed and set up on your browser. If you haven't installed Metamask yet, refer to our guide on How to Add the Mazze Testnet to Metamask.
+Ensure that you have Metamask installed and set up on your browser. If you haven't installed Metamask yet, refer to our guide on [How to Add the Mazze Testnet to Metamask](how-to-add-the-mazze-testnet-to-metamask.md).
 
 ### Initial Setup
 
 #### Step 1: Connecting to the Mazze Testnet
 
-First, you need to connect your Metamask wallet to the Mazze Testnet. Follow the detailed instructions provided in our guide: How to Add the Mazze Testnet to Metamask.
+First, you need to connect your Metamask wallet to the Mazze Testnet. Follow the detailed instructions provided in our guide: [How to Add the Mazze Testnet to Metamask](how-to-add-the-mazze-testnet-to-metamask.md).
 
 #### Step 2: Confirm Connection
 
