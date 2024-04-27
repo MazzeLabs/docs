@@ -34,9 +34,19 @@ Discover our strategic milestones and how we're propelling towards a transformat
 * [x] Wrapped token creation
 * [x] Community engagement
 * [x] Public sale
+* [x] Token listing&#x20;
+* [x] On-ramp Fiat Integration&#x20;
+* [x] Wallets Integration&#x20;
+* [x] Website Redesign&#x20;
+* [x] Airdrop Campaign
+* [x] CEX Listing
+* [x] Smart contract development
+* [x] Testnet launch
+* [ ] MazzeScan Explorer
+* [ ] Testnet incentivized campaign
 * [ ] Node operator recruitment
-* [ ] Devnet launch
-* [ ] Smart contract development
+* [ ] MazzeDEX Testnet
+* [ ] MazzeDEX Fairlaunch
 
 ### <mark style="color:orange;">PHASE C | Q3-4 2024 | Mainnet Launch</mark>
 
@@ -44,7 +54,7 @@ Discover our strategic milestones and how we're propelling towards a transformat
 
 * [ ] Mainnet launch
 * [ ] Token swap bridge
-* [ ] Smart contract integration
+* [ ] MazzeDEX launch
 * [ ] Hackathon
 * [ ] Grand program
 * [ ] Ecosystem partnerships
