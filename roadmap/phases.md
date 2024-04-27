@@ -29,7 +29,7 @@ Discover our strategic milestones and how we're propelling towards a transformat
 
 ### <mark style="color:orange;">PHASE B | Q1-2 2024 | Community Building</mark>
 
-> _`Community and Token Launch`_
+> _`Token Launch and Testnet`_
 
 * [x] Wrapped token creation
 * [x] Community engagement
