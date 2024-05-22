@@ -43,7 +43,7 @@ Fill in the network details as follows:
 
 *   To receive MAZZE tokens for testing, you might need to use a faucet specific to the Mazze Testnet.&#x20;
 
-    Faucet link: \[soon]
+    Faucet link: [https://faucet.mazze.io](https://faucet.mazze.io)
 
 ### Troubleshooting
 
