@@ -42,7 +42,7 @@ Discover our strategic milestones and how we're propelling towards a transformat
 * [x] CEX Listing
 * [x] Smart contract development
 * [x] Testnet launch
-* [ ] MazzeScan Explorer
+* [x] MazzeScan Explorer
 * [ ] Testnet incentivized campaign
 * [ ] Node operator recruitment
 * [ ] MazzeDEX Testnet
