@@ -43,7 +43,7 @@ Discover our strategic milestones and how we're propelling towards a transformat
 * [x] Smart contract development
 * [x] Testnet launch
 * [x] MazzeScan Explorer
-* [ ] Testnet incentivized campaign
+* [x] Testnet incentivized campaign
 * [ ] Node operator recruitment
 * [ ] MazzeDEX Testnet
 * [ ] MazzeDEX Fairlaunch
