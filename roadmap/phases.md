@@ -44,14 +44,17 @@ Discover our strategic milestones and how we're propelling towards a transformat
 * [x] Testnet launch
 * [x] MazzeScan Explorer
 * [x] Testnet incentivized campaign
-* [ ] Node operator recruitment
-* [ ] MazzeDEX Testnet
-* [ ] MazzeDEX Fairlaunch
+* [x] Strategic partnerships
 
 ### <mark style="color:orange;">PHASE C | Q3-4 2024 | Mainnet Launch</mark>
 
 > _`Mainnet and Growth`_
 
+* [ ] Hybrid PoW/PoS implementation
+* [ ] Devnet launch
+* [ ] Node operator recruitment
+* [ ] MazzeDEX Testnet
+* [ ] MazzeDEX Fairlaunch
 * [ ] Mainnet launch
 * [ ] Token swap bridge
 * [ ] MazzeDEX launch
