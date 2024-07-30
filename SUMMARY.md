@@ -58,7 +58,7 @@
 * [Zealy Campaign](community/zealy-campaign.md)
 * [Ambassador Program](community/ambassador-program.md)
 * [Hackathon](community/hackathon.md)
-* [Grand Program](community/grand-program.md)
+* [Grant Program](community/grant-program.md)
 
 ## 🔸 Contact us
 
