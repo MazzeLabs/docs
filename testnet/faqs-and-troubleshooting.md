@@ -1,51 +1,58 @@
 # FAQs and Troubleshooting
 
-This page addresses some of the frequently asked questions and common issues that developers encounter when working with the Mazze Testnet. Below, you’ll find solutions and tips to help you resolve these issues quickly.
-
 ## FAQs
 
-#### Q1: How do I add the Mazze Testnet to my Metamask?
+### Q1: What is the current block cadence target?
 
-**A:** To add the Mazze Testnet to Metamask, you need to access the network settings in Metamask and enter the following details:
+**A:** Current operational target in this docs set is **4 BPS**. Effective cadence can vary by mode and network conditions.
 
-* Network Name: Mazze Testnet
-* New RPC URL: `https://testnet-rpc.mazze.io`
-* Chain ID: `199991`
-* Currency Symbol: MAZZE
+### Q2: What is the fastest supported setup path?
 
-For a detailed guide, see our page on [How to Add the Mazze Testnet to Metamask](how-to-add-the-mazze-testnet-to-metamask.md).
+**A:** Docker Compose (`sudo docker compose up -d`) from [Setup Guide](setup-guide.md).
 
-#### Q2: Where can I get test MAZZE tokens for the testnet?
+### Q3: How do I control mining behavior?
 
-**A:** Test MAZZE tokens can be obtained from our testnet faucet. Visit the [Mazze Testnet Faucet page](https://faucet.mazze.io), enter your wallet address and click on "Request Tokens."
+**A:** Configure `run/hydra.toml` using `mining_type` (`stratum`, `cpu`, `disable`), `mining_author`, and stratum fields. See [Mining Guide](mining.md).
 
-#### Q3: What tools can I use to develop and test smart contracts on the Mazze Testnet?
+### Q4: How do I inspect chain health quickly?
 
-**A:** Since Mazze is EVM-compatible, you can use all the popular Ethereum development tools like Remix, Truffle, Hardhat and others for developing and testing your smart contracts.
+**A:** Run:
+
+```bash
+./run/mazze-cli.sh status
+./run/mazze-cli.sh summary
+```
+
+and use `mazze_getStatus` from [RPC Guide](rpc.md).
+
+### Q5: Which section is canonical for privacy implementation?
+
+**A:** `privacy/` is canonical.
 
 ## Troubleshooting
 
-#### Issue 1: I cannot connect to the Mazze Testnet via Metamask.
+### Issue 1: Node starts but chain does not advance
 
-**Solution:** Ensure that you have the correct RPC URL (`https://testnet-rpc.mazze.io`) and Chain ID (`199991`). If the problem persists, try clearing your browser cache or restarting Metamask.
+- Confirm RPC responds (`./run/mazze-cli.sh status`).
+- If mining is expected, verify `mining_author` and `mining_type`.
+- In stratum mode, confirm `stratum_secret`, miner connectivity, and worker logs.
 
-#### Issue 2: I haven’t received any test MAZZE tokens from the faucet.
+### Issue 2: Miner running but no accepted work
 
-**Solution:**
+- Check node and miner logs ([Viewing Mazze Logs](viewing-logs.md)).
+- Confirm `stratum_address`, `stratum_port`, and secrets match.
+- Validate thread settings (`NUM_THREADS`, `RANDOMX_FULL_MEM`) where relevant.
 
-* Check your internet connection and ensure that there is no network outage.
-* Verify that you have entered the correct wallet address.
-* If there’s still a delay, it might be due to network congestion. Please wait a few minutes and check your wallet again.
+### Issue 3: CLI commands fail
 
-#### Issue 3: My smart contract transactions keep failing.
+- Verify `RPC_URL` points to active endpoint.
+- Ensure HTTP RPC is enabled in `run/hydra.toml`.
+- Check if local-only RPC port is used by your setup.
 
-**Solution:**
+### Issue 4: Config changes have no effect in Docker
 
-* Double-check the gas limit and gas price settings in your transaction.
-* Ensure you have enough test MAZZE tokens in your account to cover transaction fees.
-* Review your smart contract code for any errors that might cause the transaction to fail.
-* If using Remix or other tools, ensure they are configured correctly to connect to the Mazze Testnet.
+Apply config by recreating containers:
 
-#### Issue 4: How do I report a bug or issue with the testnet?
-
-**Solution:** If you encounter a bug or an issue not covered in this FAQ, please report it to our support team. Provide detailed information including the error messages received, screenshots and steps to reproduce the issue. You can contact us via Discord in our dedicated channel  `#testnet-feedback`.
+```bash
+sudo docker compose up -d --force-recreate
+```

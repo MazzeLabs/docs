@@ -1,54 +1,21 @@
 # How to Add the Mazze Testnet to Metamask
 
-This guide provides a step-by-step tutorial on how to add the Mazze Testnet to your Metamask wallet. Follow these instructions to connect to the testnet and begin testing your projects.
+This page has been updated to avoid stale hardcoded values.
 
-### Prerequisites
+## Recommended approach
 
-* Ensure you have Metamask installed in your browser. If not, download and install it from the [official Metamask website](https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?utm\_source=google.com\&pli=1).
+Use your **current RPC endpoint and chain settings** from your active environment configuration rather than old static values.
 
-### Step-by-Step Instructions
+- For local development, get RPC ports from `run/hydra.toml`.
+- For operational checks, validate connectivity first with [RPC Guide](rpc.md) and [Mazze CLI](mazze-cli.md).
 
-#### Step 1: Open Metamask
+## Steps
 
-* Open your Metamask extension in your browser.
+1. Open MetaMask and choose **Add network**.
+2. Fill network fields using the RPC endpoint and chain ID currently used by your node/environment.
+3. Save and switch network.
+4. Verify connectivity by sending a read-only call (for example with `eth_chainId` from [RPC Guide](rpc.md)).
 
-#### Step 2: Accessing the Network Selection
+## Important
 
-* Click on the network selection dropdown at the top of the Metamask interface, which typically shows "Ethereum Mainnet" by default.
-
-#### Step 3: Adding the Mazze Testnet
-
-* At the bottom of the network list, click on "Add Network" to open the network configuration form.
-
-#### Step 4: Enter the Mazze Testnet Details
-
-Fill in the network details as follows:
-
-* **Network Name:** Mazze Testnet
-* **New RPC URL:** `https://testnet-rpc.mazze.io`
-* **Chain ID:** `199991`
-* **Currency Symbol:** MAZZE&#x20;
-* **Block Explorer URL:** https://mazzescan.io
-
-#### Step 5: Save and Connect
-
-* Click "Save" to add the Mazze Testnet to your network list.
-* Once added, Metamask will automatically switch to the Mazze Testnet. You are now connected!
-
-### Step 6: Confirming the Connection
-
-* Ensure that the network dropdown at the top of Metamask now displays "Mazze Testnet." This confirms that you are connected to the right network.
-
-### Step 7: Obtaining Test MAZZE Tokens
-
-*   To receive MAZZE tokens for testing, you might need to use a faucet specific to the Mazze Testnet.&#x20;
-
-    Faucet link: [https://faucet.mazze.io](https://faucet.mazze.io)
-
-### Troubleshooting
-
-If you encounter any issues while adding the Mazze Testnet, consider the following tips:
-
-* Double-check the Chain ID and RPC URL for typographical errors.
-* Ensure your Metamask extension is up to date.
-* Restart your browser and try the steps again.
+If your environment is updated, network values may change. Always trust active configuration and RPC validation over old screenshots/tutorial constants.

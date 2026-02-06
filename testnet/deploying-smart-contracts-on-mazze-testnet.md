@@ -1,156 +1,45 @@
 # Deploying Smart Contracts on Mazze Testnet
 
-This guide will walk you through deploying, testing and interacting with your smart contracts on the Mazze Testnet. Since Mazze is EVM-compatible, you can use familiar Ethereum tools like Truffle, Hardhat, or Remix for your development process.
+Mazze supports EVM-compatible development workflows, but test configuration must come from your current RPC environment.
 
-### Prerequisites
+## Before deploying
 
-* Ensure your Metamask is configured for the Mazze Testnet. See our guide on [How to Add the Mazze Testnet to Metamask](how-to-add-the-mazze-testnet-to-metamask.md).
-* Have some test MAZZE tokens in your account to pay for gas fees. You can obtain these from our Testnet Faucet: faucet.mazze.io \[soon]
+1. Ensure node/RPC are running: [Setup Guide](setup-guide.md), [RPC Guide](rpc.md).
+2. Verify chain responsiveness:
 
-### Step 1: Setting Up Your Development Environment
-
-#### Using Truffle
-
-1.  **Install Truffle**\
-    Install Truffle globally on your machine if you haven't already:
-
-    ```bash
-    npm install -g truffle
-    ```
-2.  **Initialize a New Truffle Project**
-
-    ```bash
-    mkdir MyDapp && cd MyDapp
-    truffle init
-    ```
-3.  **Configure Truffle to Use Mazze Testnet**\
-    Edit `truffle-config.js` to add the Mazze Testnet configuration:
-
-    ```javascript
-    module.exports = {
-      networks: {
-        mazze-testnet: {
-          provider: () => new HDWalletProvider(process.env.MNEMONIC, "https://testnet-rpc.mazze.io"),
-          network_id: 199991,
-          gas: 5500000,        // Gas limit used for deploys
-          confirmations: 2,    // # of confs to wait between deployments
-          timeoutBlocks: 200,  // # of blocks before a deployment times out
-          skipDryRun: true     // Skip dry run before migrations? (default: false for public nets)
-        },
-      },
-      // Other configurations...
-    };
-    ```
-
-#### Using Hardhat
-
-1.  **Install Hardhat**\
-    Set up a new Hardhat project if you haven't already:
-
-    ```bash
-    npm init -y
-    npm install --save-dev hardhat
-    ```
-2.  **Create a Hardhat Project**
-
-    ```bash
-    npx hardhat
-    ```
-3.  **Configure Hardhat to Connect to Mazze Testnet**\
-    Modify `hardhat.config.js`:
-
-    ```javascript
-    require('@nomiclabs/hardhat-ethers');
-
-    module.exports = {
-      defaultNetwork: "mazze-testnet",
-      networks: {
-        mazze-testnet: {
-          url: "https://testnet-rpc.mazze.io",
-          accounts: [process.env.PRIVATE_KEY]
-        }
-      },
-      solidity: "0.8.4",
-    };
-    ```
-
-### Step 2: Writing Your Smart Contract
-
-Create a simple smart contract. Here's an example of a simple storage contract in Solidity:
-
-```solidity
-// contracts/SimpleStorage.sol
-pragma solidity ^0.8.4;
-
-contract SimpleStorage {
-    uint public storedData;
-
-    constructor(uint initialValue) {
-        storedData = initialValue;
-    }
-
-    function set(uint x) public {
-        storedData = x;
-    }
-
-    function get() public view returns (uint) {
-        return storedData;
-    }
-}
+```bash
+./run/mazze-cli.sh status
 ```
 
-### Step 3: Deploying Your Smart Contract
+3. Query EVM chain id from active RPC before hardcoding it in tooling:
 
-Deploy your contract using Truffle or Hardhat:
+```bash
+curl -s http://127.0.0.1:58545 \
+  -H 'content-type: application/json' \
+  --data '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}'
+```
 
-#### Using Truffle
-
-Create a migration file and deploy your contract:
+## Hardhat example (environment-driven)
 
 ```javascript
-// migrations/2_deploy_contracts.js
-const SimpleStorage = artifacts.require("SimpleStorage");
+require('@nomicfoundation/hardhat-toolbox');
 
-module.exports = function(deployer) {
-  deployer.deploy(SimpleStorage, 100);
+module.exports = {
+  solidity: '0.8.24',
+  networks: {
+    mazze: {
+      url: process.env.MAZZE_RPC_URL,
+      accounts: [process.env.PRIVATE_KEY],
+      chainId: Number(process.env.MAZZE_CHAIN_ID),
+    },
+  },
 };
 ```
 
-Run the migration:
+Use environment variables from your active node deployment, not old static docs values.
 
-```bash
-truffle migrate --network mazze-testnet
-```
+## Recommended workflow
 
-#### Using Hardhat
-
-Deploy your contract with a script:
-
-```javascript
-// scripts/deploy.js
-async function main() {
-  const [deployer] = await ethers.getSigners();
-
-  console.log("Deploying contracts with the account:", deployer.address);
-
-  const SimpleStorage = await ethers.getContractFactory("SimpleStorage");
-  const simpleStorage = await SimpleStorage.deploy(100);
-
-  console.log("SimpleStorage deployed to:", simpleStorage.address);
-}
-
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
-```
-
-Run the deployment script:
-
-```bash
-npx hardhat run scripts/deploy.js --network mazze-testnet
-```
-
-### Step 4: Interacting with Your Deployed Contract
-
-After deploying, you can interact with your contract through scripts or frontend applications.
+- Build and deploy as usual with Hardhat/Foundry/Truffle.
+- Use [RPC Guide](rpc.md) for JSON-RPC method checks.
+- Use [Mazze CLI](mazze-cli.md) to inspect balances/receipts quickly.

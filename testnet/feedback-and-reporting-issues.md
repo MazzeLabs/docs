@@ -1,37 +1,41 @@
 # Feedback and Reporting Issues
 
-We value the feedback and insights from our community as they are essential in improving the Mazze Testnet. Whether it's a bug report or a suggestion for enhancing the network, here's how you can communicate with us.
+Accurate reports are critical for node/miner/RPC stability.
 
-### How to Report Bugs or Issues
+## What to include in every report
 
-Encountering issues on the testnet can be frustrating, but reporting these issues helps us enhance the network's stability and functionality. Here’s how you can report problems effectively:
+- Environment: Docker or source build
+- Config context: relevant `run/hydra.toml` fields (sanitize secrets)
+- Exact command executed
+- Full error output
+- Time range of issue
+- Node ID (if available)
 
-#### Step 1: Gather Information
+## Required logs
 
-Before reporting, please gather as much information as possible about the issue. This information should include:
+### Docker
 
-* Description of the issue
-* Steps to reproduce the problem
-* Screenshots or videos that might help illustrate the problem
-* Error messages and logs, if available
+```bash
+docker logs -f mazze-node
+docker logs -f mazze-miner
+```
 
-#### Step 2: Report on Discord
+### Source build
 
-Visit our dedicated [Discord server](https://discord.com/invite/mazze) and navigate to the `#testnet-feedback` channel. Here, you can post your issue, providing the information you gathered. Our team monitors this channel closely and will respond as quickly as possible.
+```bash
+tail -n 300 run/logs/mazze-node.log
+tail -n 300 run/logs/mazze-miner.log
+```
 
-### How to Provide Feedback
+## Useful diagnostic checks
 
-Your suggestions are crucial for the continuous improvement of the Mazze Testnet. Whether it's about the usability, features, or any other feedback, here's how you can share your thoughts:
+```bash
+./run/mazze-cli.sh status
+./run/mazze-cli.sh summary
+```
 
-#### Join Our Discord Community
+And RPC status call from [RPC Guide](rpc.md).
 
-* Engage with us and other community members in the `#testnet-feedback` channel on our [Discord server](https://discord.com/invite/mazze). This channel serves as a hub for testnet users to share their experiences and ideas.
-* When providing feedback, try to be as specific as possible about what you like, what you don’t and how you think things could be improved.
+## Where to report
 
-### What Happens After You Provide Feedback?
-
-Once you post your feedback or report an issue, here’s what to expect:
-
-* Our team will acknowledge your input as soon as they review it. We appreciate every piece of feedback and take it seriously.
-* We may ask further questions to clarify your suggestions or the nature of the issue.
-* Based on the community's feedback, we will make updates and improvements. We also keep the community informed about what changes are being made and why.
+Use the official Mazze support/community channels and include the full context above so issues can be reproduced quickly.

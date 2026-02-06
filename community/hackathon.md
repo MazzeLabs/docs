@@ -15,7 +15,9 @@ layout:
 
 # Hackathon
 
-At Mazze, we understand the critical importance of security in blockchain technology. Our commitment to safeguarding our platform is unwavering, and we demonstrate this through our comprehensive security strategies. The Mazze Hackathon, scheduled for Q3 2024, is a cornerstone of this commitment.
+At Mazze, we treat security as a core engineering requirement. The Mazze
+Hackathon is part of our ecosystem hardening and developer activation work in
+**Phase C**.
 
 ### <mark style="color:orange;">**Mazze Hackathon**</mark> <mark style="color:orange;"></mark><mark style="color:orange;">|</mark> <mark style="color:orange;"></mark><mark style="color:orange;">**More than a competition**</mark>
 
@@ -37,5 +39,6 @@ The Mazze Hackathon goes beyond the event itself. The insights and advancements 
 The Mazze Hackathon is more than a competition; it's a festival of technology, a hub for knowledge exchange, and a display of our unwavering commitment to security. Join us in this landmark event to push the boundaries of blockchain security and innovation.
 
 {% hint style="info" %}
-_The application form for the Hackathon will be available during Phase C, following the launch of the mainnet._
+_Hackathon registration and schedule are published during **Phase C** through
+official communication channels._
 {% endhint %}

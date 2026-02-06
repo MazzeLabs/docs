@@ -14,7 +14,7 @@ layout:
 
 # Team
 
-We are [<mark style="color:orange;">**profEdwin**</mark>](https://t.me/eliteminer\_edwin) and [<mark style="color:orange;">**Equin0x**</mark>](https://t.me/Equin0x0), key members of **Team Mazze** - a coalition of visionary technologists. Alongside our colleagues, we're setting out to revolutionize the blockchain landscape with our groundbreaking ideas. Our team embodies innovation and a commitment to community-driven development, principles that are at the heart of our collaborative efforts.
+We are [<mark style="color:orange;">**profEdwin**</mark>](https://t.me/eliteminer\_edwin), [<mark style="color:orange;">**Equin0x**</mark>](https://t.me/Equin0x0), and [<mark style="color:orange;">**Paladin0x**</mark>](https://t.me/Paladin0x), key members of **Team Mazze** - a coalition of visionary technologists. Alongside our colleagues, we're setting out to revolutionize the blockchain landscape with our groundbreaking ideas. Our team embodies innovation and a commitment to community-driven development, principles that are at the heart of our collaborative efforts.
 
 ### <mark style="color:orange;">**Our Journey and Philosophy**</mark>
 

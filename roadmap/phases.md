@@ -14,61 +14,48 @@ layout:
 
 # Phases
 
-Discover our strategic milestones and how we're propelling towards a transformative future in blockchain technology.
+This roadmap reflects current implementation status and removes date-based labels.
 
-### <mark style="color:orange;">PHASE A | Q3 2023 | Conceptualization</mark>
+### <mark style="color:orange;">PHASE A | Foundation</mark>
 
-> _`Shaping the Vision`_
+> _`Core Architecture and Project Setup`_
 
 * [x] Concept development
 * [x] Whitepaper drafting
-* [x] Technical documentation
-* [x] Branding and initial marketing
-* [x] Online presence
-* [x] Community outreach
+* [x] Initial technical documentation
+* [x] Branding and online presence
+* [x] Early community outreach
 
-### <mark style="color:orange;">PHASE B | Q1-2 2024 | Community Building</mark>
+### <mark style="color:orange;">PHASE B | Core Network and Tooling</mark>
 
-> _`Token Launch and Testnet`_
+> _`PoW Network, Token Framework, and Dev Operations`_
 
-* [x] Wrapped token creation
-* [x] Community engagement
-* [x] Public sale
-* [x] Token listing&#x20;
-* [x] On-ramp Fiat Integration&#x20;
-* [x] Wallets Integration&#x20;
-* [x] Website Redesign&#x20;
-* [x] Airdrop Campaign
-* [x] CEX Listing
-* [x] Smart contract development
-* [x] Testnet launch
-* [x] MazzeScan Explorer
-* [x] Testnet incentivized campaign
-* [x] Strategic partnerships
+* [x] PoW + DAG/DETS technical direction established
+* [x] Wrapped MAZZE ERC20 deployment and allocation framework
+* [x] Testnet operational flow defined
+* [x] Node + miner setup guides (Docker and source)
+* [x] Mazze CLI workflows documented
+* [x] JSON-RPC operational documentation
+* [x] Mining modes documented (`stratum`, `cpu`, `disable`)
+* [x] Privacy implementation documented (shielded pool + Groth16 flow)
 
-### <mark style="color:orange;">PHASE C | Q3-4 2024 | Mainnet Launch</mark>
+### <mark style="color:orange;">PHASE C | Mainnet Readiness and Ecosystem</mark>
 
-> _`Mainnet and Growth`_
+> _`Launch Hardening and Ecosystem Activation`_
 
-* [ ] Hybrid PoW/PoS implementation
-* [ ] Devnet launch
-* [ ] Node operator recruitment
-* [ ] MazzeDEX Testnet
-* [ ] MazzeDEX Fairlaunch
-* [ ] Mainnet launch
-* [ ] Token swap bridge
-* [ ] MazzeDEX launch
-* [ ] Hackathon
-* [ ] Grand program
-* [ ] Ecosystem partnerships
+* [ ] Mainnet launch readiness and validation
+* [ ] Node operator expansion
+* [ ] Bridge operations hardening and monitoring
+* [ ] Ecosystem app rollout (DEX and related integrations)
+* [ ] Hackathon and grant program execution
+* [ ] Strategic ecosystem partnerships
 
-### <mark style="color:orange;">PHASE D | 2025 | Future Enhancements</mark>
+### <mark style="color:orange;">PHASE D | Expansion and Optimization</mark>
 
-> _`Continuous Development`_
+> _`Scale, Interoperability, and Long-Term Growth`_
 
-* [ ] DeFi integration strategies
-* [ ] Privacy features - ZK Proofs
-* [ ] Cross-Chain functionality
-* [ ] Network optimization techniques
-* [ ] Global compliance adherence
-* [ ] Sustainability initiatives launch
+* [ ] Cross-chain interoperability expansion
+* [ ] DeFi ecosystem growth initiatives
+* [ ] Network optimization and high-BPS soak tuning
+* [ ] Operational compliance and governance hardening
+* [ ] Long-term sustainability initiatives

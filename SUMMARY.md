@@ -18,9 +18,40 @@
 
 * [Overview](tokenomics/overview.md)
 * [Token Utility](tokenomics/token-utility.md)
-* [Inflation](tokenomics/inflation.md)
 * [Wrapped Token (ERC20)](tokenomics/wrapped-token-erc20.md)
 * [Allocations](tokenomics/allocations.md)
+* [Bridge Liquidity](tokenomics/bridge-liquidity.md)
+* [Issuance](tokenomics/issuance.md)
+* [Shielded Pool Genesis Fund](tokenomics/shielded-pool-genesis-fund.md)
+* [Inflation (Merged into Issuance)](tokenomics/inflation.md)
+
+## 🔸 Architecture
+
+* [Mazze Node Architecture](architecture/README.md)
+* [Overview](architecture/overview.md)
+* [Block structure](architecture/block-structure.md)
+* [Transaction pool](architecture/transaction-pool.md)
+* [Block generation](architecture/block-generation.md)
+* [PoW and mining](architecture/pow-and-mining.md)
+* [DAG and DETS](architecture/dag-and-dets.md)
+* [Consensus](architecture/consensus.md)
+* [Execution and state](architecture/execution-and-state.md)
+* [Verification](architecture/verification.md)
+* [Storage and snapshots](architecture/storage-and-snapshots.md)
+* [Synchronization](architecture/synchronization.md)
+* [Networking](architecture/networking.md)
+* [RPC and APIs](architecture/rpc-and-apis.md)
+* [Genesis and params](architecture/genesis-and-params.md)
+* [Rewards and fees](architecture/rewards-and-fees.md)
+* [Node types and light protocol](architecture/node-types-and-light-protocol.md)
+
+## 🔸 Privacy
+
+* [Privacy](privacy/README.md)
+* [Overview](privacy/overview.md)
+* [Shielded pool contract](privacy/shielded-pool.md)
+* [Shielded transactions](privacy/transactions.md)
+* [Keys and tooling](privacy/keys-and-tooling.md)
 
 ## 🔸 DEVELOPERS
 
@@ -34,19 +65,17 @@
 ## 🔸 Testnet
 
 * [Introduction to Mazze Testnet](testnet/introduction-to-mazze-testnet.md)
-* [Temporary Limitations](testnet/temporary-limitations.md)
-* [How to Add the Mazze Testnet to Metamask](testnet/how-to-add-the-mazze-testnet-to-metamask.md)
-* [Getting Started with Mazze Testnet](testnet/getting-started-with-mazze-testnet.md)
-* [Deploying Smart Contracts on Mazze Testnet](testnet/deploying-smart-contracts-on-mazze-testnet.md)
+* [Setup Guide](testnet/setup-guide.md)
+* [Mazze CLI](testnet/mazze-cli.md)
+* [Mining Guide](testnet/mining.md)
+* [RPC Guide](testnet/rpc.md)
+* [Viewing Logs](testnet/viewing-logs.md)
+* [Getting Started](testnet/getting-started-with-mazze-testnet.md)
+* [Deploying Smart Contracts](testnet/deploying-smart-contracts-on-mazze-testnet.md)
 * [FAQs and Troubleshooting](testnet/faqs-and-troubleshooting.md)
+* [Temporary Limitations](testnet/temporary-limitations.md)
+* [Wallet Tool Connection (MetaMask)](testnet/how-to-add-the-mazze-testnet-to-metamask.md)
 * [Feedback and Reporting Issues](testnet/feedback-and-reporting-issues.md)
-
-## 🔸 ZK Proofs Integration
-
-* [Overview](zk-proofs-integration/overview.md)
-* [ZK Proofs Types](zk-proofs-integration/zk-proofs-types.md)
-* [Why We Chose ZK-STARKs](zk-proofs-integration/why-we-chose-zk-starks.md)
-* [How ZK-STARKs Work](zk-proofs-integration/how-zk-starks-work.md)
 
 ## 🔸 Knowledge Base
 
