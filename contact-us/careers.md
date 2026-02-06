@@ -17,7 +17,7 @@ layout:
 Our mission is to attract exceptional talent motivated by the revolutionary spirit of the Web3 industry and its foundational principles. Our team is a mosaic of individuals from various corners of the globe, embracing a rich diversity of backgrounds, experiences, ethnicities, races, colors, genders, and sexual orientations. Reflecting our worldwide user base, we aspire for our core team to mirror this global diversity, fostering an inclusive environment where innovation and collaboration flourish.
 
 {% hint style="success" %}
-## <mark style="color:green;">We're hiring!</mark>
+## <mark style="color:green;">We're now hiring!</mark>
 {% endhint %}
 
 ### <mark style="color:orange;">TikTok</mark> <mark style="color:orange;"></mark><mark style="color:orange;">**Content Creator**</mark>
