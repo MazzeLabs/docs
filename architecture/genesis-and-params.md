@@ -20,8 +20,16 @@ Genesis bootstraps chain state, internal contracts, and initial balances.
 `genesis_block` performs:
 - State initialization and internal contract setup.
 - Funding of configured genesis accounts (including dev/test keys when used).
-- Genesis treasury account creation and shielded pool seeding.
-- Emission of genesis transactions (create2 factory, optional shielded key).
+- Genesis treasury account creation and legacy shielded pool seeding.
+- Emission of genesis transactions (create2 factory, optional legacy pool
+  verifying key).
+- A genesis message embedded in the genesis transaction data
+  (`GENESIS_TRANSACTION_DATA_STR`).
+
+{% hint style="warning" %}
+The genesis message changed the genesis block hash. Wipe local chain state
+before starting a node built from the current code.
+{% endhint %}
 - Construction of the genesis header with initial difficulty and gas limit.
 
 ## Explicit genesis issuance logic
@@ -52,8 +60,24 @@ Configuration exposes key consensus parameters:
 
 Hardfork transitions are also configured by height/epoch.
 
+## Chain IDs
+Each space has its own chain ID (`AllChainID` holds three):
+
+- `chain_id` for the native space;
+- `evm_chain_id` for eSpace;
+- `shielded_chain_id` for the shielded space, defaulting to `chain_id`. Proofs
+  are bound to it.
+
+## Shielded parameters
+`ShieldedParams` in `CommonParams` configures the shielded lane:
+`shielded_activation_height` (inactive by default), `shielded_slot_epochs`
+(20), `shielded_max_txs_per_block` (8), the constant fee and the anchor window
+(100,000 epochs). See [The shielded lane](../privacy/shielded-lane.md#parameters).
+
 ## Key source files
 - `crates/mazzecore/core/src/genesis_block.rs`
 - `crates/client/src/configuration.rs`
 - `crates/mazzecore/internal_common/src/chain_id.rs`
 - `crates/mazzecore/parameters/src/lib.rs`
+- `crates/mazzecore/parameters/src/genesis.rs`
+- `crates/mazzecore/executor/src/spec.rs`

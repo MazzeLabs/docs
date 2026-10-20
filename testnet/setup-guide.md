@@ -137,8 +137,8 @@ cargo build --release -p mazze-miner
 ```
 
 Logs:
-- Dev node: `run/logs/mazze-node-dev.log`
-- Miner: `run/logs/mazze-miner.log`
+- Dev node: `logs/mazze-node-dev.log`
+- Miner: `logs/mazze-miner.log`
 
 Stop everything:
 ```bash
@@ -169,5 +169,5 @@ Container logging options are handled by Docker; compose already mounts `run/log
 
 ## Soak Testing
 
-For high-BPS soak runs and metrics-based GC/DB tuning, use the dedicated
-internal soak-testing runbook for your environment.
+For high-BPS soak runs and metrics-based GC/DB tuning, see the
+[soak test guide](soak-test.md).

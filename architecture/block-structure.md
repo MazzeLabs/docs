@@ -35,7 +35,10 @@ outputs (deferred roots).
 - `referee_hashes` - extra DAG edges referencing other blocks.
 - `custom` - custom bytes used for fork markers and protocol transitions.
 - `nonce` - PoW nonce.
-- `base_price` - per-space base fee (native and EVM).
+- `base_price` - per-space base price. It is `[native, eSpace]` while the
+  shielded price is zero, and `[native, eSpace, shielded]` once it is set. A
+  zero third price is non-canonical, so existing headers keep their encoding
+  and hash.
 
 ## Deferred roots and epochs
 Execution is deferred by a fixed number of epochs to reduce reorg churn. The
@@ -48,11 +51,32 @@ includes transactions without sender/public fields (RLP of
 `TransactionWithSignature`), while helper encoders can include the public key
 when needed for RPC or sync.
 
+## Shielded section
+A block can carry a third part, the shielded section, with the bodies of
+shielded transactions:
+
+- The block is `[header, transactions]`, or `[header, transactions, shielded]`
+  when the section is non-empty. An empty section has one valid form (absent),
+  so existing blocks keep their encoding.
+- With a non-empty section, `transactions_root` is
+  `keccak(domain || account_root || shielded_root)`. There is no new header
+  field.
+- On the wire, a block also carries its witness: one proof per shielded body,
+  `[header, transactions, shielded, witness]`. The block database stores the
+  body without the witness.
+- A stored body is the old transaction list when there is no section,
+  otherwise a `0x01` marker followed by `[transactions, shielded]`.
+
+See [The shielded lane](../privacy/shielded-lane.md).
+
 ## Compact blocks
 `CompactBlock` is used for efficient block relay. It includes short IDs derived
 from a random nonce, so peers can reconstruct the full block from their mempool.
+The shielded section rides along as an optional fourth item, and the root
+check on reconstruction uses the full root.
 
 ## Key source files
 - `crates/primitives/src/block_header.rs`
 - `crates/primitives/src/block.rs`
+- `crates/primitives/src/shielded.rs`
 - `crates/mazzecore/core/src/verification.rs`

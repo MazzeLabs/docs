@@ -1,9 +1,10 @@
 ---
+description: What Mazze is and how it fits together.
 layout:
   title:
     visible: true
   description:
-    visible: false
+    visible: true
   tableOfContents:
     visible: true
   outline:
@@ -14,10 +15,40 @@ layout:
 
 # Introduction
 
-{% hint style="success" %}
-Greetings, everyone! Welcome to the inaugural edition of the Mazze documentation. For any technical inquiries, please connect with us on [<mark style="color:green;">Telegram</mark>](https://t.me/MazzeLabs) or [<mark style="color:green;">Discord</mark>](https://discord.mazze.io/). Be advised that these documents are in an ongoing state of development as of the latest update on February 12, 2024.
+{% hint style="info" %}
+These docs were last updated on **20 October 2026**. For technical questions, reach us on [Telegram](https://t.me/MazzeLabs) or [Discord](https://discord.mazze.io/).
 {% endhint %}
 
-Mazze is a layer 1 blockchain designed to establish a decentralized platform integrating robust security and absolute transparency. Its innovative architecture facilitates sustainable high-volume transactions, a significant achievement for a Proof of Work (PoW) chain. Mazze is committed to minimizing environmental impact, a key concern in blockchain technology today. It supports Decentralized Finance (DeFi) and is tailored to empower the creation and proliferation of Decentralized Applications (DApps) in sectors such as finance, healthcare, and education. These applications aim to transform service delivery and access in these fields by offering unparalleled efficiency, security, and user control.
+Mazze is a layer 1 blockchain secured by Proof of Work. It aims to be **fast, secure and private**.
 
-Mazze's focus on these sectors demonstrates its dedication to advancing blockchain technology and addressing real-world challenges. The platform leverages advanced cryptographic techniques and innovative consensus mechanisms to optimize transaction speed and reliability, ensuring scalability and network resilience. Designed with user-centricity, Mazze caters to both technical and non-technical users. Its approach to governance and legal compliance reflects a deep understanding of the regulatory landscape, ensuring alignment with global standards and practices. This comprehensive approach positions Mazze as a pioneering force in the blockchain domain, with a clear trajectory towards shaping the future of decentralized technologies and their applications in vital sectors of the economy​​. &#x20;
+* **Fast.** Blocks form a DAG instead of a single chain. Miners can produce blocks in parallel, and consensus orders them all into epochs instead of discarding the losers. The operational target is 4 blocks per second.
+* **Secure.** Proof of Work with RandomX, a hash function tuned for ordinary CPUs, keeps mining open to anyone with a computer. The node has been through a full security audit.
+* **Private.** A shielded space keeps payments private with post-quantum zero-knowledge proofs, with no trusted setup.
+
+## One chain, three spaces
+
+Mazze runs three spaces on one chain, with one state root:
+
+| Space | For |
+| --- | --- |
+| <mark style="color:orange;">**Native**</mark> | Mazze-specific features: base32 addresses, sponsored gas, storage collateral, internal contracts |
+| <mark style="color:purple;">**eSpace**</mark> | Ethereum-compatible smart contracts and wallets, on revm 40 |
+| **Shielded** | Private notes and payments, proven with STARKs |
+
+Value moves between the spaces through built-in bridges. Read more in [Three spaces](three-spaces.md).
+
+## How a block becomes final
+
+1. Miners build blocks that reference a **parent** and any number of **referees**, so every block they have seen is included in the graph.
+2. Consensus picks a **pivot chain** through the DAG. Each pivot block and the blocks it newly brings in form an **epoch**.
+3. The node executes epochs in order. Results are committed in later headers as **deferred roots**.
+4. Every 20,000 epochs, a **checkpoint** marks the era as final.
+
+The [Architecture](../architecture/README.md) section follows this path through the node's code.
+
+## Where to go next
+
+* Building an app? Start with [Developers](../developers/overview.md).
+* Running infrastructure? Start with [Run a node](../testnet/introduction-to-mazze-testnet.md).
+* Curious about privacy? Start with [Shielded space](../privacy/README.md).
+* Watching the chain? Open [mazzescan.io](https://mazzescan.io).

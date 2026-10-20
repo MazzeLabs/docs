@@ -12,7 +12,12 @@ layout:
     visible: true
 ---
 
-# Shielded transactions
+# Pool transactions (legacy)
+
+{% hint style="warning" %}
+This page documents the **legacy Groth16 pool**, superseded by the [shielded space](README.md). See [Legacy pool](legacy-pool.md).
+{% endhint %}
+
 
 Shielded transfers are encoded as native transactions with a special payload
 that targets the shielded pool contract.

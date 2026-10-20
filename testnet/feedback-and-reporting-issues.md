@@ -23,8 +23,8 @@ docker logs -f mazze-miner
 ### Source build
 
 ```bash
-tail -n 300 run/logs/mazze-node.log
-tail -n 300 run/logs/mazze-miner.log
+tail -n 300 logs/mazze-node.log
+tail -n 300 logs/mazze-miner.log
 ```
 
 ## Useful diagnostic checks

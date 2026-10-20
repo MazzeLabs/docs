@@ -31,6 +31,11 @@ The light protocol provides:
 Light nodes are more conservative about which peers they accept and what data
 they trust, using the `blame` field and witness checks.
 
+## Shielded data
+Light nodes receive a block's shielded section with its transactions
+(`BlockTxsWithHash`) and check it against the full transactions root. They do
+not serve the `shielded_*` RPC.
+
 ## Key source files
 - `crates/mazzecore/core/src/node_type.rs`
 - `crates/mazzecore/core/src/light_protocol/handler/mod.rs`

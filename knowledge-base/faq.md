@@ -1,9 +1,10 @@
 ---
+description: Short answers to the questions we hear most.
 layout:
   title:
     visible: true
   description:
-    visible: false
+    visible: true
   tableOfContents:
     visible: true
   outline:
@@ -14,75 +15,155 @@ layout:
 
 # FAQ
 
-### <mark style="color:orange;">What is Mazze at a technical level?</mark>
+## The chain
 
-Mazze is a PoW blockchain with a DAG-based structure (DETS in consensus), epoch-based execution, and native + EVM transaction spaces.
+<details>
 
-### <mark style="color:orange;">What is the current block production cadence?</mark>
+<summary>What is Mazze at a technical level?</summary>
 
-Current operational docs use **4 BPS** (4 blocks per second) as the network target. In local dev mode, cadence can differ based on `dev_block_interval_ms` and configuration.
+A Proof-of-Work layer 1 whose blocks form a DAG. Consensus (DETS) orders the blocks into epochs, and execution runs epoch by epoch. One chain carries three spaces: Native, eSpace (EVM) and Shielded. See [Three spaces](../overview/three-spaces.md).
 
-### <mark style="color:orange;">Is "1 block per second" still correct?</mark>
+</details>
 
-No. That value is outdated and has been replaced in this documentation set.
+<details>
 
-### <mark style="color:orange;">What consensus/mining model is used?</mark>
+<summary>What is the block rate?</summary>
 
-Mazze uses Proof of Work with RandomX hashing. Mining can run in `stratum`, `cpu`, or `disable` mode, configured in `run/hydra.toml`.
+The operational target is **4 blocks per second**. The old "1 block per second" figure is out of date. In dev mode the rate depends on `dev_block_interval_ms`.
 
-### <mark style="color:orange;">How do I run a node quickly?</mark>
+</details>
 
-Use Docker Compose (recommended in the [Setup Guide](../testnet/setup-guide.md)),
-configure `run/hydra.toml`, then start with:
+<details>
+
+<summary>What consensus and mining model does Mazze use?</summary>
+
+Proof of Work with RandomX. Mining runs in `stratum`, `cpu` or `disable` mode, set in `run/hydra.toml`.
+
+</details>
+
+<details>
+
+<summary>Is Mazze compatible with Ethereum?</summary>
+
+Yes, in eSpace. It runs on revm 40 with the Prague spec and passes all 34,036 Ethereum state tests. MetaMask, Foundry and Hardhat work as usual. See [EVM compatibility](../developers/evm-compatibility.md).
+
+</details>
+
+## Privacy
+
+<details>
+
+<summary>Does Mazze have privacy features?</summary>
+
+Yes. The **shielded space** keeps payments private: owners and amounts are hidden, and only shield-in and shield-out amounts are public. It works end to end on devnet and will be activated on public networks at a set height. See [Shielded space](../privacy/README.md).
+
+</details>
+
+<details>
+
+<summary>Which proof system does the shielded space use?</summary>
+
+**PS-1**, a STARK built with Plonky3 over the KoalaBear field, with FRI and Keccak-256, at 128 bits of proven soundness. It needs no trusted setup and rests only on hash functions, so it is post-quantum. See [Proof system PS-1](../privacy/proof-system.md).
+
+</details>
+
+<details>
+
+<summary>What happened to the Groth16 pool?</summary>
+
+It is superseded. The audit rated its single trusted setup Critical: a leaked trapdoor would allow silent minting. The shielded space removes the trusted setup. The old pool is documented under [Legacy pool](../privacy/legacy-pool.md).
+
+</details>
+
+<details>
+
+<summary>Can someone who sent me a note spend it?</summary>
+
+No. Spending a note needs the owner's spend key `nsk`, which only the recipient's wallet holds. The sender knows the note's contents, not the key.
+
+</details>
+
+<details>
+
+<summary>How do I back up a shielded wallet?</summary>
+
+Keep the 32-byte seed. `restore` rebuilds every self-note (change, shield-ins and claims) from it. Run `claim` after receiving a payment, so that the received value becomes a self-note too. See [Wallet guide](../privacy/wallet.md#back-up-and-restore).
+
+</details>
+
+## Running a node
+
+<details>
+
+<summary>How do I run a node quickly?</summary>
+
+Use Docker Compose, as in the [setup guide](../testnet/setup-guide.md). Configure `run/hydra.toml`, then:
 
 ```bash
 sudo docker compose up -d
 ```
 
-### <mark style="color:orange;">How do I mine on Mazze?</mark>
+</details>
 
-Set `mining_author`, choose `mining_type` (`stratum` or `cpu`), and run
-node/miner per the [Mining Guide](../testnet/mining.md).
+<details>
 
-### <mark style="color:orange;">Does Mazze have privacy features today?</mark>
+<summary>How do I mine?</summary>
 
-Yes. Privacy is implemented via a shielded pool internal contract with proof-verified shielded transactions.
+Set `mining_author`, choose `mining_type` (`stratum` or `cpu`), and start the node and the miner as in the [mining guide](../testnet/mining.md).
 
-### <mark style="color:orange;">Which proof system is currently implemented in privacy?</mark>
+</details>
 
-The current privacy implementation uses **Groth16 over BLS12-381** with a Poseidon Merkle tree.
+<details>
 
-### <mark style="color:orange;">Where is privacy documentation maintained now?</mark>
+<summary>Where are the logs?</summary>
 
-Privacy documentation is maintained in the **Privacy** section:
-[Overview](../privacy/overview.md), [Shielded Pool](../privacy/shielded-pool.md),
-and [Shielded Transactions](../privacy/transactions.md).
+Source builds write to the repository-root `logs/` directory. With Docker, use `docker logs -f mazze-node` and `docker logs -f mazze-miner`. See [Viewing logs](../testnet/viewing-logs.md).
 
-### <mark style="color:orange;">Where should I manage wallets and transfers?</mark>
+</details>
 
-Use `./run/mazze-cli.sh` (Mazze CLI) for wallet creation/import, balance checks, transfers, and shielded operations.
+<details>
 
-### <mark style="color:orange;">Where can I find RPC details?</mark>
+<summary>My upgraded node will not start. Why?</summary>
 
-Use the [RPC guide](../testnet/rpc.md) for endpoints, namespaces, and examples.
+The genesis block hash changed. Wipe the local chain state and start again. If the node complains about a missing snapshot parent, the error names the snapshot and the setting to check, `keep_snapshot_before_stable_checkpoint`.
 
-### <mark style="color:orange;">Where are logs stored?</mark>
+</details>
 
-For source builds: `run/logs/`.
-For Docker: `docker logs -f mazze-node` and `docker logs -f mazze-miner`.
+<details>
 
-### <mark style="color:orange;">What are the current core tokenomics values?</mark>
+<summary>Where do I manage wallets and transfers?</summary>
 
-- Wrapped MAZZE on Ethereum: 4,900,000,000
-- Native genesis issuance: 3,900,000,000
-- Mining target: 2,500,000,000
-- Theoretical native upper bound: 6,400,000,000
+For native and eSpace accounts, use the Mazze CLI, `./run/mazze-cli.sh`. See [Mazze CLI](../testnet/mazze-cli.md). For the shielded space, use `mazze-shielded-wallet`.
 
-### <mark style="color:orange;">Where should I start reading now?</mark>
+</details>
 
-- [Architecture](../architecture/README.md)
-- [Privacy](../privacy/README.md)
-- [Tokenomics](../tokenomics/overview.md)
-- [Setup Guide](../testnet/setup-guide.md)
-- [Mazze CLI](../testnet/mazze-cli.md)
-- [Mining Guide](../testnet/mining.md)
+<details>
+
+<summary>Where can I find RPC details?</summary>
+
+In the [RPC guide](../testnet/rpc.md) (ports, examples, method list) and [RPC and APIs](../architecture/rpc-and-apis.md) (namespaces, allowlists, limits).
+
+</details>
+
+## Token
+
+<details>
+
+<summary>What are the core tokenomics values?</summary>
+
+* Wrapped MAZZE on Ethereum: 4,900,000,000
+* Native genesis issuance: 3,900,000,000
+* Mining target: 2,500,000,000
+* Theoretical native upper bound: 6,400,000,000
+
+See [Tokenomics](../tokenomics/overview.md).
+
+</details>
+
+<details>
+
+<summary>Are fees burned?</summary>
+
+Base fees are burned, MIP-1559 style. Shielded transactions pay one constant fee, and it is burned in full. `mazze_getFeeBurnt` returns the cumulative burned amount.
+
+</details>

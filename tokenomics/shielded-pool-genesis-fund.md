@@ -16,6 +16,10 @@ layout:
 
 This page explains how `SHIELDED_POOL_GENESIS_FUND_MAZZE` is applied at genesis.
 
+{% hint style="info" %}
+This fund seeds the **legacy Groth16 pool**. The new [shielded space](../privacy/README.md) has no genesis seed: its backing comes only from shield-ins, and its fees are burned.
+{% endhint %}
+
 ### <mark style="color:orange;">What It Is</mark>
 
 * `SHIELDED_POOL_GENESIS_FUND_MAZZE` defines how many native MAZZE are moved to the shielded pool contract at genesis.

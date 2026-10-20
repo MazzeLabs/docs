@@ -12,7 +12,12 @@ layout:
     visible: true
 ---
 
-# Shielded pool contract
+# Pool contract (legacy)
+
+{% hint style="warning" %}
+This page documents the **legacy Groth16 pool**, superseded by the [shielded space](README.md). See [Legacy pool](legacy-pool.md).
+{% endhint %}
+
 
 The shielded pool is an internal contract (built-in) that holds shielded
 balances and verifies proof-based spends.

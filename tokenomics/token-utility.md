@@ -15,7 +15,7 @@ layout:
 
 # Token Utility
 
-The MAZZE token utility is now described using the current model in `new-docs`.
+What the MAZZE token is used for, natively and as wrapped MAZZE on Ethereum.
 
 ### <mark style="color:orange;">**Wrapped MAZZE (Ethereum) Utility**</mark>
 

@@ -1,9 +1,10 @@
 ---
+description: The node's pipeline from end to end, its runtime loops, and the crate map.
 layout:
   title:
     visible: true
   description:
-    visible: false
+    visible: true
   tableOfContents:
     visible: true
   outline:
@@ -14,69 +15,59 @@ layout:
 
 # Overview
 
-Mazze Node is built as a collection of Rust crates wired together by the main
-binary in `bins/mazze`. The runtime pipeline is:
+Mazze Node is a set of Rust crates wired together by the main binary in `bins/mazze`.
 
-1. Transactions arrive over RPC or P2P and enter the transaction pool.
-2. The block generator asks the pool for a packable set of transactions and
-   assembles a candidate block header/body.
-3. Proof of Work (PoW) is computed locally or via Stratum workers.
-4. The synchronization graph ingests headers and bodies and maintains the DAG
-   connectivity.
-5. The consensus graph (on top of sync) maintains the DAG-Embedded Tree
-   Structure (DETS) and produces an ordered sequence of epochs.
-6. The consensus executor executes epoch transactions and produces deferred
-   state/receipt/logs roots.
-7. Block and state data are persisted by the block data manager and storage
-   manager.
-8. RPC serves queries backed by the consensus graph, data manager, and state DB.
+<figure><picture><source srcset="../.gitbook/assets/brand/diagram-node-pipeline-dark.svg" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/brand/diagram-node-pipeline.svg" alt="Node pipeline"></picture><figcaption></figcaption></figure>
 
-## Block flow (mermaid)
-```mermaid
-flowchart LR
-  subgraph Ingress
-    rpc[RPC] --> pool[Transaction Pool]
-    p2p[P2P Tx] --> pool
-  end
-  pool -->|pack| bg[Block Generator]
-  bg -->|candidate block| pow[PoW / Mining]
-  pow -->|solved block| sync[Synchronization Graph]
-  sync -->|graph-ready| cons[Consensus Graph]
-  cons -->|ordered epoch| exec[Consensus Executor]
-  exec -->|state roots + receipts| data[Block Data Manager]
-  data --> rpcq[RPC Queries]
-  data -->|best info| bg
-```
+## Pipeline
 
-## Crate map (high level)
-- `bins/mazze` - node entrypoint, wiring, and runtime services.
-- `crates/mazzecore/core` - consensus, sync, txpool, verification, PoW.
-- `crates/blockgen` - block assembly and mining orchestration.
-- `crates/network` - P2P transport, discovery, peer management.
-- `crates/dbs/storage` - state DB, snapshots, Merkle Patricia Trie.
-- `crates/primitives` - block, header, tx, receipt primitives.
-- `crates/client` - configuration and JSON-RPC handlers.
-- `crates/stratum` - Stratum service implementation.
-- `crates/transactiongen` - optional transaction generator for dev/test.
+1. **Intake.** Transactions arrive over RPC or P2P and enter the transaction pool. Account transactions go to per-sender nonce pools; shielded transactions go to the shielded lane.
+2. **Packing.** The block generator asks the pool for a packable set and assembles a candidate block. At slot heights it also packs shielded bodies and their proofs.
+3. **Proof of Work.** The nonce is found locally or by Stratum workers.
+4. **Sync graph.** Headers and bodies are checked and connected into the DAG. Shielded proofs are verified here (stage A).
+5. **Consensus.** The consensus graph keeps the DAG-Embedded Tree Structure (DETS), picks the pivot chain and emits ordered epochs.
+6. **Execution.** The executor runs each epoch: native transactions on Mazze's interpreter, eSpace transactions on revm, then the shielded section (stage B) on slot epochs. It produces deferred state, receipt and log roots.
+7. **Persistence.** The block data manager and storage manager write blocks, receipts, witnesses and state to MDBX and ParityDB.
+8. **Queries.** RPC answers from the consensus graph, the block data manager and the state database.
 
 ## Runtime loops
-- Sync loop: drives the catch-up phases and fetches missing headers/bodies.
-- Consensus loop: activates ready blocks, updates ordering, and emits epochs.
-- Execution loop: runs in a worker thread and commits epoch results.
-- Mining loop: assembles blocks, pushes PoW problems, and submits solutions.
-- RPC loop: exposes state/block/txpool APIs and tracing.
 
-## End-to-end data flow (compressed)
-- New tx -> `TransactionPool` -> `PackingPool` -> `BlockGenerator`.
-- New block header -> `SynchronizationGraph` -> body fetch -> `ConsensusGraph`.
-- Ordered epoch -> `ConsensusExecutor` -> roots/receipts -> `BlockDataManager`.
-- Persisted data -> RPC queries and mining inputs.
+| Loop | Job |
+| --- | --- |
+| Sync | Drives the catch-up phases and fetches missing headers and bodies |
+| Consensus | Activates ready blocks, updates the ordering, emits epochs |
+| Execution | Runs in a worker thread and commits epoch results |
+| Mining | Assembles blocks, pushes PoW problems, submits solutions |
+| RPC | Serves HTTP, WebSocket and TCP on one shared tokio runtime |
+
+## Crate map
+
+| Crate | Role |
+| --- | --- |
+| `bins/mazze` | Node entry point, CLI and wiring |
+| `bins/mazze-miner` | Mining client |
+| `bins/mazze-shielded-wallet` | Shielded-space wallet |
+| `crates/mazzecore/core` | Consensus, sync, transaction pool, verification, PoW, Dandelion++ |
+| `crates/mazzecore/executor` | Execution, internal contracts, the shielded engine |
+| `crates/mazzecore/eth-vm` | eSpace execution on revm 40 |
+| `crates/mazzecore/vm-interpreter` | Native-space interpreter |
+| `crates/shielded_pq` | Shielded-space cryptography: field, notes, keys, tree, AIR, PS-1 |
+| `crates/blockgen` | Block assembly and mining orchestration |
+| `crates/network` | P2P transport, discovery, peer management |
+| `crates/dbs/storage` | State DB (MDBX, ParityDB), snapshots, Merkle Patricia Trie |
+| `crates/primitives` | Blocks, headers, transactions, receipts, shielded bodies |
+| `crates/client` | Configuration and JSON-RPC handlers |
+| `crates/util/rpc-error` | The JSON-RPC error type |
+| `crates/stratum` | Stratum server on tokio |
+| `crates/transactiongen` | Optional transaction generator for dev and test |
 
 ## Key source files
+
 - `crates/mazzecore/core/src/consensus/mod.rs`
 - `crates/mazzecore/core/src/sync/synchronization_graph.rs`
 - `crates/mazzecore/core/src/consensus/consensus_inner/consensus_executor/mod.rs`
 - `crates/mazzecore/core/src/transaction_pool/mod.rs`
+- `crates/mazzecore/executor/src/shielded_engine.rs`
 - `crates/blockgen/src/lib.rs`
 - `crates/dbs/storage/src/lib.rs`
 - `crates/client/src/rpc/impls/mazze/mazze_handler.rs`

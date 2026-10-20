@@ -39,6 +39,29 @@ items. Each task includes:
 If the epoch is on the local main chain, transactions that were packed but not
 executed are recycled back into the txpool.
 
+## Two VMs
+`vm_factory.rs` routes each transaction by space:
+
+| Space | VM |
+| --- | --- |
+| Native | Mazze's interpreter (`crates/mazzecore/vm-interpreter`) |
+| eSpace | revm 40.0.0 with the Prague spec (`crates/mazzecore/eth-vm`) |
+
+Mazze's own rules (the cross-space bridge, sponsorship, storage collateral,
+`evm_gas_ratio`, restricted `BLOCKHASH`) are applied outside revm, which is
+unmodified. The cross-space internal contract is dispatched before the VM
+factory, so neither VM sees cross-space calls.
+
+## Shielded engine (stage B)
+On the pivot block of each slot epoch, after the account transactions, the
+shielded engine applies the shielded section. It checks every rule before it
+writes anything: deposit credit for a shield-in, anchor inside the window,
+unspent nullifiers, enough backing, room in the tree. Then it marks nullifiers
+spent, appends the commitments, records the new root, pays any shield-out and
+burns the fee. A transaction that fails a rule is skipped with no state change.
+Proofs are not needed here; they were verified in stage A. See
+[The shielded lane](../privacy/shielded-lane.md#stage-b-execution).
+
 ## Deferred roots and blame
 The execution output is stored in the block data manager and reflected into
 later headers as deferred roots. The `blame` field allows light clients to
@@ -52,5 +75,8 @@ snapshots and checkpoints.
 ## Key source files
 - `crates/mazzecore/core/src/consensus/consensus_inner/consensus_executor/mod.rs`
 - `crates/mazzecore/core/src/consensus/consensus_inner/consensus_executor/epoch_execution.rs`
+- `crates/mazzecore/executor/src/machine/vm_factory.rs`
+- `crates/mazzecore/eth-vm/src/lib.rs`
+- `crates/mazzecore/executor/src/shielded_engine.rs`
 - `crates/mazzecore/internal_common/src/state_root_with_aux_info.rs`
 - `crates/mazzecore/internal_common/src/state_availability_boundary.rs`

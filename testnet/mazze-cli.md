@@ -88,5 +88,5 @@ mazze> help
 
 ## Related docs
 - `setup-guide.md`
-- `../privacy/transactions.md`
+- [Shielded space wallet](../privacy/wallet.md)
 - `rpc.md`

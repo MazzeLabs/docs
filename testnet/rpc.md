@@ -28,7 +28,26 @@ curl -s http://127.0.0.1:12539 \
   --data '{"jsonrpc":"2.0","id":1,"method":"mazze_getStatus","params":[]}'
 ```
 
-Mazze call (latest_state):
+The response keeps the legacy top-level fields and also groups the main values
+into `progress`, `randomx`, `snapshots` and `era` objects. For dashboards,
+prefer:
+- `progress.bestEpochNumber`
+- `progress.bestBlockNumber`
+- `progress.latestStateEpochNumber`
+- `randomx.epochNumber`
+- `snapshots.latestSnapshotEpochNumber`
+- `snapshots.availableSnapshotCount`
+- `era.number`
+
+`mazze_getRandomXEpochInfo` returns:
+- `epochNumber`: the RandomX epoch index
+- `selectedEpochNumber`: the Mazze epoch used to resolve the query
+- `startEpochNumber` / `endEpochNumber` / `nextTransitionEpochNumber`
+
+The older `startBlockHeight` / `endBlockHeight` / `nextTransitionBlockHeight`
+fields remain as legacy aliases.
+
+Mazze call (`latest_state`), here reading the legacy pool's root:
 ```bash
 curl -s http://127.0.0.1:12539 \
   -H 'content-type: application/json' \
@@ -42,12 +61,44 @@ curl -s http://127.0.0.1:58545 \
   --data '{"jsonrpc":"2.0","id":1,"method":"eth_blockNumber","params":[]}'
 ```
 
+Shielded space status (`active` stays `false` until the activation height):
+```bash
+curl -s http://127.0.0.1:12539 \
+  -H 'content-type: application/json' \
+  --data '{"jsonrpc":"2.0","id":1,"method":"shielded_getStatus","params":[]}'
+```
+See [Shielded RPC](../privacy/rpc.md) for the full shielded API.
+
 ## WebSocket pubsub example
 ```bash
 # Requires a WS client like wscat
 wscat -c ws://127.0.0.1:52535
 > {"jsonrpc":"2.0","id":1,"method":"mazze_subscribe","params":["newHeads"]}
 ```
+
+## Default ports
+
+| Port | Serves |
+| --- | --- |
+| `12539` | Local HTTP, native and shielded APIs (used by the CLI) |
+| `52537` | HTTP, native APIs |
+| `52535` | WebSocket, native APIs |
+| `52536` | TCP, native APIs |
+| `58545` | HTTP, eSpace |
+| `58546` | WebSocket, eSpace |
+
+These are the values in `run/hydra.toml`; your deployment may differ.
+
+## Exposing RPC safely
+
+- `public_rpc_apis` defaults to `"safe"` (`mazze`, `pubsub`, `txpool`,
+  `shielded`). Never use `"all"` on a public bind address.
+- `jsonrpc_cors` no longer defaults to `"all"`. List the origins you trust.
+- Server limits bound what one client can cost you. Defaults: 1,000 requests
+  per batch, 25 MiB responses, 1,000 HTTP and 100 WebSocket connections, 1,024
+  subscriptions per connection, 5 MiB per TCP request line. Each one is a
+  `jsonrpc_*` option documented in `run/hydra.toml`. See
+  [RPC and APIs](../architecture/rpc-and-apis.md#server-limits).
 
 ## Supply and burn calls
 - `mazze_getSupplyInfo`: returns chain supply aggregates from node state.
@@ -196,6 +247,15 @@ test_sendUsableGenesisAccounts
 set_db_crash
 save_node_db
 ```
+
+### Shielded APIs
+```text
+shielded_sendRawTransaction
+shielded_getStatus
+shielded_isNullifierSpent
+shielded_getSections
+```
+Full nodes and archive nodes only. See [Shielded RPC](../privacy/rpc.md).
 
 ### Mazze pubsub (WebSocket)
 Methods:

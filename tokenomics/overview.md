@@ -14,7 +14,7 @@ layout:
 
 # Overview
 
-This section reflects the current tokenomics model from `new-docs`.
+This section describes the current tokenomics model.
 
 ### <mark style="color:orange;">**Current Model (as of February 6, 2026)**</mark>
 

@@ -1,9 +1,10 @@
 ---
+description: eSpace runs on revm 40 with the Prague spec. What works as on Ethereum, and where Mazze differs.
 layout:
   title:
     visible: true
   description:
-    visible: false
+    visible: true
   tableOfContents:
     visible: true
   outline:
@@ -12,53 +13,53 @@ layout:
     visible: true
 ---
 
-# EVM Compatibility
+# EVM compatibility
 
-### <mark style="color:orange;">Ethereum Virtual Machine (EVM) Overview</mark>
+<mark style="color:purple;">**● ESPACE**</mark>
 
-The Ethereum Virtual Machine (EVM) is the runtime environment for smart contracts in Ethereum. It is a powerful, sandboxed virtual stack embedded within each full Ethereum node, responsible for executing contract bytecode. Contracts written in high-level languages (like Solidity) are compiled into EVM bytecode.
+eSpace is Mazze's Ethereum-compatible space. It executes on **revm 40.0.0**, with the **Prague** spec, from genesis. There is no transition flag and no parallel path.
 
-**Importance of EVM Compatibility for Layer 1 Blockchains** | EVM compatibility allows Layer 1 blockchains like Mazze to leverage Ethereum's established ecosystem, enabling developers to use familiar tools and languages. This compatibility facilitates easier migration of DApps and smart contracts from Ethereum to Mazze, broadening the potential user and developer base.
+## How compatible
 
-### <mark style="color:orange;">Mazze Blockchain Architecture</mark>
+| Check | Result |
+| --- | --- |
+| `ethereum/tests` `GeneralStateTests` | **34,036 / 34,036** pass |
+| Spec | Prague (`SpecId::PRAGUE`) |
+| revm | Unmodified upstream |
+| Tracing | geth-style traces through `alloy-rpc-types-trace` |
 
-Mazze combines Proof of Work (PoW) and Directed Acyclic Graph (DAG) technologies. This unique architecture requires specialized adaptations to ensure EVM compatibility.
+The excluded fixtures cover transaction acceptance rules (intrinsic gas, insufficient funds, EIP-1559 fee checks), which Mazze checks before execution rather than inside the VM.
 
-### <mark style="color:orange;">Smart Contracts on Mazze</mark>
+Future Ethereum hard forks reach eSpace through a revm update and a spec bump.
 
-Benefits of EVM Compatibility:
+## What works as on Ethereum
 
-* **Enhanced Interoperability** | Seamless interaction with Ethereum-based protocols and assets.
-* **Developer Familiarity** | Utilize existing Ethereum development tools and languages.
-* **Broader Adoption** | Attracts a wider community of developers and users familiar with Ethereum.
+* Solidity and Vyper contracts, compiled with standard tools.
+* MetaMask, ethers, viem, web3.js.
+* Foundry and Hardhat for testing and deployment.
+* `eth_*` JSON-RPC, filters, logs, `eth_getProof`, `eth_feeHistory`, and `eth_subscribe` over WebSocket.
+* The standard precompiles, including KZG point evaluation (`0x0a`).
 
-**Comparison with Non-EVM Layer 1 Blockchains** | Non-EVM chains often face challenges in attracting Ethereum developers due to the need for learning new languages and tools. Mazze, being EVM-compatible, removes this barrier.
+## Where Mazze differs
 
-### <mark style="color:orange;">Future Developments</mark>
+These behaviours are implemented outside revm.
 
-Potential Enhancements:
+| Area | On Mazze |
+| --- | --- |
+| **Block tags** | `finalized` maps to the latest checkpoint |
+| **`BLOCKHASH`** | Answered by Mazze's block history, with a restricted range |
+| **Storage gas** | Gas for storage-occupying operations is multiplied by `evm_gas_ratio` (2 by default) |
+| **Sponsorship and collateral** | Native-space features, not part of eSpace execution |
+| **Cross-space calls** | Native accounts call eSpace through the cross-space internal contract (`callEVM`, `createEVM`, `staticCallEVM`, `transferEVM`). It is dispatched before either VM runs. |
+| **Mapped accounts** | Every native address has a mapped eSpace address. `withdrawFromMapped` moves value back to the native space. |
+| **Ordering** | Blocks form a DAG and execute in epochs. A transaction's position is final once its epoch is confirmed. |
 
-* Further optimization of EVM integration for better performance.
-* Expanding the range of Ethereum-compatible tools and libraries available for Mazze.
+## Known issue
 
-**Influence on the Blockchain Ecosystem** | The continuous improvement in EVM compatibility on Mazze is expected to set a benchmark in the blockchain space, influencing other projects to adopt similar approaches for interoperability and developer engagement.
+{% hint style="warning" %}
+After a successful contract creation through the live cross-space bridge, the account is stored with the right `code_hash`, but `eth_getCode` can return empty because the code-by-hash entry is missing. Direct deployments in eSpace are not affected. This is tracked for a fix.
+{% endhint %}
 
-***
+## Native space VM
 
-## <mark style="color:orange;">Challenges and Solutions</mark>
-
-### Integration Challenges:
-
-1. **Adapting EVM to Mazze's PoW and DAG Structure** | The planned integration of the Ethereum Virtual Machine (EVM) into Mazze's innovative blend of Proof of Work (PoW) and Directed Acyclic Graph (DAG) architectures is anticipated to present significant challenges. The complexity primarily stems from reconciling the linear, sequential nature of traditional EVM-based blockchains with the concurrent transaction processing capabilities of Mazze's DAG structure. A key future focus will be ensuring that EVM's state transition and contract execution model, originally designed for linear blockchains, will be effectively and efficiently functional within a DAG framework.
-2. **Ensuring Network Security and Performance** | As we proceed with integrating the EVM, paramount importance will be placed on maintaining the network's security and performance. Key future concerns include preventing the introduction of EVM from opening new vectors for attacks, especially considering Mazze's unique consensus mechanism. Moreover, it is crucial that the integration does not significantly compromise the network's high throughput and scalable architecture, which are among Mazze's primary value propositions.
-
-### Planned Solutions:
-
-1. **Custom-Built Modules for EVM-Mazze Integration** | To tackle these upcoming challenges, our development team plans to engineer a series of custom-built modules. These will serve as an interface layer between the EVM and Mazze's underlying architecture, performing several critical functions:
-   * **Transaction Mapping and Ordering** | A specialized module will be developed for converting the DAG-based transaction structure into a format compatible with EVM's linear execution model. This will involve dynamically ordering transactions to respect the causal relationships of the DAG, while ensuring consistent and deterministic state transitions in the EVM.
-   * **State Management Optimization** | Considering the concurrent nature of DAG, we plan to implement an advanced state management system. This system will isolate the execution environment of each smart contract, preventing state conflicts or inconsistencies during concurrent executions. This will be achieved through a blend of lock-free data structures and optimized concurrency control algorithms.
-   * **Consensus Bridging** | A crucial module will act as a liaison between Mazze's PoW-DAG consensus mechanism and the EVM. It will be designed to make the EVM aware of the consensus state and enable correct processing of transactions following Mazze's network rules.
-2. **Continuous Optimization for High Throughput and Security** | The EVM integration into Mazze will be an ongoing process of optimization and enhancement. This will include:
-   * **Performance Benchmarking** | We plan regular benchmarking of the network to monitor the impact of EVM integration on throughput and latency. This will aid in identifying performance bottlenecks and in optimizing both the EVM and Mazze's underlying architecture.
-   * **Security Audits** | We will conduct regular and comprehensive security audits to identify and address potential vulnerabilities that might arise from the EVM integration. This will encompass both static codebase analysis and dynamic testing under various network scenarios.
-   * **Community-Driven Development** | We will leverage the open-source community for testing, feedback, and contributions, enabling a broad exploration of use cases and scenarios. This approach is aimed at ensuring a robust and well-tested EVM integration process.
+The native space keeps Mazze's own interpreter, with Mazze's own rules (sponsorship, collateral, internal contracts). The KZG precompile is not available there; it was removed from the native space and exists only in eSpace.

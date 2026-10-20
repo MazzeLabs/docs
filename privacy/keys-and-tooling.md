@@ -12,7 +12,12 @@ layout:
     visible: true
 ---
 
-# Keys and tooling
+# Keys and tooling (legacy)
+
+{% hint style="warning" %}
+This page documents the **legacy Groth16 pool**, superseded by the [shielded space](README.md). See [Legacy pool](legacy-pool.md).
+{% endhint %}
+
 
 ## Verifying key lifecycle
 The shielded pool verifies Groth16 proofs using a verifying key stored on chain.
@@ -42,5 +47,4 @@ The executor crate includes helper binaries for the shielded flow:
 - `shielded_bundle` - build shielded bundles and proofs.
 
 ## Operational docs
-Step-by-step CLI and RPC usage should follow your local shielded-transactions
-runbook.
+Step-by-step CLI and RPC usage is in [Legacy pool](legacy-pool.md#cli-flow).

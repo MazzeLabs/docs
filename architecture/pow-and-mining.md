@@ -41,8 +41,24 @@ block generation period, and the adjustment epoch period in
   submitted nonces.
 - `Disable` - mining is turned off (used for read-only nodes or some dev modes).
 
+The Stratum server runs on tokio 1. It keeps the wire protocol: newline-delimited
+JSON-RPC 1.0 and 2.0 (responses mirror the request version), the same
+subscribe and submit semantics, and `mining.notify` pushes.
+
+A node normally refuses to mine with fewer than two peers. Dev mode is exempt,
+since a dev node runs alone by design.
+
+## Verification metrics
+Every case where PoW verification is skipped is counted:
+`pow.verification_verified`, `pow.verification_skipped_catch_up`,
+`pow.verification_skipped_zero_seed_hash`,
+`pow.verification_skipped_consortium`, `pow.verification_bench_mode_failure`
+and `pow.catch_up_transitions_total`. A block whose seed hash cannot be
+resolved is rejected.
+
 ## Key source files
 - `crates/mazzecore/core/src/pow/mod.rs`
 - `crates/mazzecore/core/src/pow/cache.rs`
 - `crates/blockgen/src/lib.rs`
 - `crates/blockgen/src/miner/stratum.rs`
+- `crates/stratum/src/lib.rs`
